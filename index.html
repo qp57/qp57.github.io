@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22https://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😎</text>
+</svg>">
+<style>
+
+* {
+     box-sizing: border-box;
+}
+
+img {
+     vertical-align: middle;
+}
+
+body {
+     font-family: Arial, sans-serif;
+     background-color: rgb(44,62,80);
+     margin-top: 20px;
+     margin-left: 20px;
+     margin-bottom: 20px;
+     font-size: 20px;
+}
+
+a:link, a:visited, a:active {
+  text-decoration: none;
+  color: Silver;
+}
+
+a:hover {
+     color: FloralWhite;
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.button-container {
+    display: flex;
+    width: 94%;
+    max-width: 900px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.button {
+    flex: 1;
+    margin: 5px;
+    padding: 15px;
+    border: none;
+    border-radius: 16px;
+    background-color: #536879;
+    color: FloralWhite;
+    font-size: 36px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.button:hover {
+     background-color: #a08977;
+}
+
+.separador {
+     height: 16px;
+     margin: 0;
+}
+
+
+
+
+.maquetar {
+  /* para maquetar (marcar y/o generar espacios) */
+  border: 0px solid red;
+}
+
+.documento {
+  width: 918px;
+  /* padding: 8px;  ==  padding-left: 8px; padding-right: 8px; padding-top: 8px; padding-bottom: 8px; */
+  padding: 8px;
+  border: 0px solid red;
+}
+
+.marquito {
+  /* para separar */
+  /* border: 1px solid red; */
+  /* border: 1px solid SlateGray; */
+  /* border: 1px solid transparent; */
+  border: 1px solid transparent;
+}
+
+.filtro1 {
+  /* filter: opacity(50%); */
+  /* filter: grayscale(66%); */
+  /* filter: hue-rotate(60deg); */
+  filter:  opacity(100%) hue-rotate(0deg) grayscale(80%);
+}
+
+.filtro2 {
+  filter: opacity(100%) hue-rotate(60deg) grayscale(80%);
+}
+
+div.container {
+  position: relative;
+  border: 0px solid cyan;
+} 
+div.plus {
+  position: absolute;
+  font-size: medium;
+  border: 0px solid cyan;
+}
+img.plus {
+  width: 24px;
+  height: 24px;
+  filter: invert(90%) opacity(55%);
+}
+img.plus:hover {
+  filter: invert(100%) opacity(100%);
+}
+
+</style>
+<body>
+
+<!-- https://www.w3schools.com/charsets/default.asp -->
+<!-- https://www.w3schools.com/charsets/ref_utf_symbols.asp -->
+<!-- https://www.w3schools.com/charsets/ref_emoji_smileys.asp -->
+<!-- 
+ȹ ♾ ☗ ♻ ® © ☸ ♧ ♢ ⛒ ✚ ❖ ▣ ☒ ⊞ ⌀ ⚉ ⚈ ⚬ ⚝ ☼ ⚟ ☽ ☾ ◐ ◑ ☯
+★ ✦ ☄ ✿ ⛶ ❏ ⚅ ♪ ♫ ☨ ➔ ➜ ⯅⯆⯇⯈ ❬ ➤ ❭ ♞ ☀ ☁ ☂ ☠ ✈ ⛟ ⛴ ❤ ⛰
+✅❎❌❓❗⭕⛔🎵🎶➕🟡🟢🔵⚫🔴🟤🟣⚪◽🟨🟩🟧🟦⬛🟥🟫🟪⬜⚙️
+➡️⬅️⏩⏪⏫⏬1️⃣2️⃣3️⃣4️⃣5️⃣✏️🖍️🦙🐄⚓⛺⛽📖📓📔📚☕⏰⏱️🕗⌚⌛🎰♓♋♊♉⛎®️©️⚛️☸️
+🖼️📷📸📃📰📄📝🥃🧊🌅🏜️🗺️🌡️🌩️⛈️☂️☔💧💦⛰️🏔️🗻⛄⛅🌥️🌦️🌧️☁️🎸🎷🎺🎼📻🎥📺👀
+🤎🥸😎🤓📁📂⚡🔥🕸️🛞💫✨⭐🌟🔮🪄🔌🫧🧫🤗💬🌓🌗🌘🌒🌛🌜🩴🌳🛒
+ -->
+
+<!-- ######################### -->
+<!-- ######## BUTTONS ######## -->
+<!-- ######################### -->
+
+    <div class="button-container">
+        <button class="button"><img style="width: 400px; border-radius:8px; filter: hue-rotate(0deg) grayscale(80%);" src="https://app.weathercloud.net/device/sticker/1721867295" onclick="window.location='https://app.weathercloud.net/d1721867295#current';" ></img></button>
+        <button class="button"><img style="width: 400px; border-radius:8px; filter: hue-rotate(0deg) grayscale(80%);" src="https://app.weathercloud.net/device/sticker/8320882108" onclick="window.location='https://app.weathercloud.net/d8320882108#current';" ></img></button>
+    </div>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://www.meteoblue.com/es/tiempo/mapas/castelldefels_espa%c3%b1a_3125897#coords=5.58/41.181/2.321&map=radar~radarMapEU~none~none~none'">🌧️</button>
+        <button class="button" onclick="location.href='https://www.windy.com/es/-Radar-del-tiempo-radar?radar,41.377,2.089,5'">⛈️</button>
+        <button class="button" onclick="location.href='https://m.meteo.cat/temps-actual'">🌦️</button>
+        <button class="button" onclick="location.href='https://argenbi.com/demos/aca/evolucio_diaria.html'">💧</button>
+        <button class="button" onclick="location.href='#meteo_Boltaña'">⛰️</button>
+        <button class="button" onclick="location.href='#meteo_Castelldefels'">⛅</button>
+    </div>
+
+<p class="separador"></p>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://stream.srg-ssr.ch/m/rsj/aacp_96'">🎷Radio Swiss JAZZ</button>
+        <button class="button" onclick="location.href='https://stream.srg-ssr.ch/m/rsc_fr/aacp_96'">🎻Radio Swiss CLASSIC</button>
+    </div>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://west-aac-64.streamthejazzgroove.com/stream'">🎷 JG West</button>
+        <button class="button" onclick="location.href='https://east-aac-64.streamthejazzgroove.com/stream'">🎷 JG East</button>
+        <button class="button" onclick="location.href='https://mdr-284350-0.cast.mdr.de/mdr/284350/0/aac/high/stream.aac'">🎻 mdr K</button>
+    </div>
+
+<p class="separador"></p>
+
+    <div class="button-container">
+    <!-- https://github.com/LaQuay/TDTChannels/blob/master/RADIO.md -->
+        <button class="button" onclick="location.href='https://www.rtve.es/play/radio/'">📻 Rne</button>
+        <button class="button" onclick="location.href='https://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3'">📻 Ser</button>
+        <button class="button" onclick="location.href='https://www.3cat.cat/3cat/directes/catalunya-radio/'">📻 CatR</button>
+        <button class="button" onclick="location.href='https://playerservices.streamtheworld.com/api/livestream-redirect/RAC_1.mp3'">📻 Rac1</button>
+    </div>
+
+<p class="separador"></p>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://www.lavanguardia.com/'">📰 laV</button>
+        <button class="button" onclick="location.href='https://elpais.com/'">📰 elPa</button>
+        <button class="button" onclick="location.href='https://www.elperiodico.com/'">📰 elPe</button>
+        <button class="button" onclick="location.href='https://www.elmundo.es/'">📰 elM</button>
+        <button class="button" onclick="location.href='https://www.elconfidencial.com/'">📰 elC</button>
+    </div>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://cnnespanol.cnn.com'">📰 CNN</button>
+        <button class="button" onclick="location.href='https://www.bbc.com/mundo'">📰 BBC</button>
+        <button class="button" onclick="location.href='https://www.nytimes.com/es'">📰 NYT</button>
+        <button class="button" onclick="location.href='https://www.newyorker.com'">📰 NYer</button>
+    </div>
+
+<p class="separador"></p>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://www.enriquedans.com/'">📝 ED</button>
+        <button class="button" onclick="location.href='https://121clicks.com/'">📷 121c</button>
+        <button class="button" onclick="location.href='https://www.microsiervos.com/'">🧊 ms</button>
+        <button class="button" onclick="location.href='https://culturainquieta.com/'">©️ CI</button>
+    </div>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://www.xataka.com/'">📄xtk</button>
+        <button class="button" onclick="location.href='https://es.gizmodo.com/'">📄gzmd</button>
+        <button class="button" onclick="location.href='https://www.engadget.com/'">📄ngdt</button>
+        <button class="button" onclick="location.href='https://es.wired.com/'">📄wired</button>
+        <button class="button" onclick="location.href='https://technologyreview.es/'">📄mit</button>
+    </div>
+
+<p class="separador"></p>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://www.perplexity.ai/'">♓</button>
+        <button class="button" onclick="location.href='https://chatgpt.com/'">♋</button>
+        <button class="button" onclick="location.href='https://grok.com/'">♉</button>
+        <button class="button" style="font-size: xx-large" onclick="location.href='https://lmarena.ai/'">🟨</button>
+        <button class="button" onclick="location.href='https://huggingface.co/'">🤗</button>
+    </div>
+
+<p class="separador"></p>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://www.justwatch.com/es/nuevo?providers=fil,mvs,mxx,prv,rtv'">👀</button>
+        <button class="button" onclick="location.href='https://www.filmaffinity.com/'">🎞️</button>
+        <button class="button" onclick="location.href='https://www.ellibrototal.com/'">📖</button>
+        <button class="button" onclick="location.href='https://radio.garden/'">📻</button>
+        <button class="button" onclick="location.href='https://tv.garden/'">📺</button>
+    </div>
+
+<p class="separador"></p>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://drive.google.com/drive/folders/1vxmVUTikeyJmaRRxtR-ryJptx35uwBLL'">📁☁️</button>
+        <button class="button" onclick="location.href='https://fast.com/es/'">🛜</button>
+        <button class="button" onclick="location.href='https://stellarium-web.org/'">✨</button>
+        <button class="button" onclick="location.href='https://mapcarta.com/es/Mapa'">🌐</button>
+    </div>
+
+<p class="separador"></p>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='https://www.energiaxxi.com/login.html'">⚡</button>
+        <button class="button" onclick="location.href='https://areaclientes.comercializadoraregulada.es/ovh-web/Login.gas'">🔥</button>
+        <button class="button" onclick="location.href='https://www.amazon.es'">🛒</button>
+        <button class="button" onclick="location.href='https://time.is/'">🕗</button>
+    </div>
+
+<p class="separador"></p>
+
+    <div class="button-container">
+        <button class="button" onclick="location.href='./'">⛶</button>
+        <button class="button" onclick="location.href='./'">⛶</button>
+        <button class="button" onclick="location.href='./'">⛶</button>
+        <button class="button" onclick="location.href='./'">⛶</button>
+    </div>
+
+
+
+
+
+
+<p style="height: 300px; margin: 0;"></p>
+
+
+
+
+
+
+<!-- ##################################### -->
+<!-- ######## meteo_Castelldefels ######## -->
+<!-- ##################################### -->
+
+<p id="meteo_Castelldefels"></p>
+
+<div class="documento">
+
+<!-- #### meteo-1 #### -->
+
+<table cellpadding=0 cellspacing=0 border=0>
+   <tr>
+    <td><!-- ## SANT BOI LLOBREGAT (MeteotempSB https://meteotempsb.blogspot.com): https://www.jdserver.es/meteotemps/sbwebcam.jpg -->
+<div class="container">
+<img class="marquito" style="border-radius: 9px;" src="https://www.jdserver.es/meteotemps/sbwebcam.jpg" onclick="window.location=this.src;" width="450" height="161">
+<div class="plus" style="top: -54px; right: -70px;"><!-- # METEOBLUE Tº EL PRAT -->
+ <iframe src="https://www.meteoblue.com/es/tiempo/widget/three/castelldefels_españa_3125897?geoloc=fixed&nocurrent=0&noforecast=1&tempunit=CELSIUS&layout=dark" scrolling="no" allowtransparency="true" sandbox style="filter: opacity(85%); border: 0px solid red;"></iframe>
+</div>
+<div class="plus" style="font-size: large; color: white; top: 50%; left: 25%;">
+ W
+</div>
+</div>
+<table cellpadding=0 cellspacing=0 border=0>
+   <tr>
+    <td><!-- ## EA3GKP / LES CORTS: https://infomet.am.ub.es/webcam_dam/cam.jpg -->
+<img class="marquito filtro1" src="https://app.weathercloud.net/device/sticker/1299768799"
+ onclick="window.location='https://www.bcn.cat/transit/imatges/DiagonalMCristina.gif?';"
+ onmouseover="this.src='https://www.bcn.cat/transit/imatges/DiagonalMCristina.gif?'"
+ onmouseout="this.src='https://app.weathercloud.net/device/sticker/1299768799'"
+ usemap="#1299768799" width="225" height="113">
+<map name="1299768799">
+  <area shape="circle" coords="225,113,50" href="https://app.weathercloud.net/d1299768799#current">
+</map>
+    </td>
+    <td><!-- ## PORT GINESTA -->
+<div class="container">
+<img class="marquito filtro1" src="https://app.weathercloud.net/device/sticker/8185009166"
+ onclick="window.location='https://app.weathercloud.net/d8185009166#current';"
+ width="225" height="113">
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://v.angelcam.com/iframe?v=6xblmkbkr2&autoplay=1">📺</a></div>
+</div>
+    </td>
+   </tr>
+   <tr>
+    <td><!-- ## BOLTAÑA: https://www.ayuntamientossobrarbe.com/webcam/boltana/imagen.jpg / AINSA APOLO: https://www.norpyrene.com/webcams/cruce/scripts/webcam.php? -->
+<div class="container">
+<img class="marquito filtro1" src="https://app.weathercloud.net/device/sticker/9070692185"
+ onclick="window.location='https://www.norpyrene.com/webcams/cruce/scripts/webcam.php?';"
+ onmouseover="this.src='https://www.norpyrene.com/webcams/cruce/scripts/webcam.php?'"
+ onmouseout="this.src='https://app.weathercloud.net/device/sticker/9070692185'"
+ usemap="#9070692185" width="225" height="113">
+<map name="9070692185">
+  <area shape="circle" coords="225,113,50" href="https://app.weathercloud.net/d9070692185#current">
+</map>
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://www.saihebro.com/semobile/index.php?url=/tr/ficha/estacion:A040">📰</a></div>
+ <div class="plus" style="top: 2px; right: 28px;"><a href="https://www.saihebro.com/semobile/index.php?url=/pluviometrias/index">☔</a></div>
+ <div class="plus" style="top: 2px; right: 52px;"><a href="https://www.ayuntamientossobrarbe.com/webcam/boltana/imagen.jpg">📺</a></div>
+</div>
+    </td>
+    <td><!-- ## OLESA BONESVALLS / Aeròdrom d'Avinyonet del Penedès (vista sur): https://185.160.168.18:8030/jpg/image.jpg / Meteo Els Pinars - Vallirana (vista noroeste): https://www.elspinars.es/webcam/webcam00.jpg? -->
+<div class="container">
+<img class="marquito filtro1" src="https://app.weathercloud.net/device/sticker/0944002011"
+ onclick="window.location='https://www.elspinars.es/webcam/webcam00.jpg?';"
+ onmouseover="this.src='https://www.elspinars.es/webcam/webcam00.jpg?'"
+ onmouseout="this.src='https://app.weathercloud.net/device/sticker/0944002011'"
+ usemap="#0944002011" width="225" height="113">
+<map name="0944002011">
+  <area shape="circle" coords="225,113,50" href="https://app.weathercloud.net/d0944002011#current">
+</map>
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://www.weatherlink.com/embeddablePage/show/7138e574420b48328c2c8705cd827b2c/summary">📰</a></div>
+ <div class="plus" style="top: 2px; right: 28px;"><a href="https://www.weatherlink.com/embeddablePage/show/7138e574420b48328c2c8705cd827b2c/slim">📄</a></div>
+</div>
+    </td>
+   </tr>
+</table>
+    </td>
+    <td><!-- ## WALDBECK JAGL -->
+<div class="container">
+<img class="marquito filtro2" src="https://app.weathercloud.net/device/sticker/8320882108"
+ onclick="window.location='https://app.weathercloud.net/d8320882108#current';"
+ width="450" height="199">
+ <div class="plus" style="top: 2px; right: 4px;" onclick="window.location.reload()">🕗</div>
+</div>
+<table cellpadding=0 cellspacing=0 border=0>
+   <tr>
+    <td><!-- ## METEORIC -->
+<img class="marquito filtro2" src="https://app.weathercloud.net/device/sticker/2422830771"
+ onclick="window.location='https://app.weathercloud.net/d2422830771#current';"
+  width="225" height="113">
+    </td>
+    <td><!-- ## MONTEMAR 2 -->
+<img class="marquito filtro2" src="https://app.weathercloud.net/device/sticker/1650024356"
+ onclick="window.location='https://app.weathercloud.net/d1650024356#current';"
+  width="225" height="113">
+    </td>
+   </tr>
+</table>
+<table cellpadding=0 cellspacing=0 border=0>
+   <tr>
+    <td><!-- ## AJ. CAST. CLUB NÀUTIC -->
+<div class="container">
+<img class="marquito filtro2" src="https://app.weathercloud.net/device/sticker/0335831201"
+ onclick="window.location='https://app.weathercloud.net/d0335831201#current';"
+ ondblclick="window.location='https://app.weathercloud.net/p0335831201#weather';"
+  width="150" height="75">
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://app.weathercloud.net/p0335831201#history">📰</a></div>
+</div>
+    </td>
+    <td><!-- ## AJ. CAST. AJUNTAMENT -->
+<div class="container">
+<img class="marquito filtro2" src="https://app.weathercloud.net/device/sticker/1721867295"
+ onclick="window.location='https://app.weathercloud.net/d1721867295#current';"
+ ondblclick="window.location='https://app.weathercloud.net/p1721867295#weather';"
+  width="150" height="75">
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://app.weathercloud.net/p1721867295#history">📰</a></div>
+</div>
+    </td>
+    <td><!-- ## AJ. CAST. LA GUAITA -->
+<div class="container">
+<img class="marquito filtro2" src="https://app.weathercloud.net/device/sticker/2131558879"
+ onclick="window.location='https://app.weathercloud.net/d2131558879#current';"
+ ondblclick="window.location='https://app.weathercloud.net/p2131558879#weather';"
+  width="150" height="75">
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://app.weathercloud.net/p2131558879#history">📰</a></div>
+</div>
+    </td>
+   </tr>
+</table>
+    </td>
+   </tr>
+</table>
+
+<!-- #### meteo-2 #### -->
+
+<table cellpadding=0 cellspacing=0 border=0>
+   <tr>
+    <td><!-- ## SAT METEOBLUE -->
+<div class="container" style="padding-top: 6px;">
+<iframe src="https://www.meteoblue.com/es/tiempo/mapas/widget/castelldefels_espa%c3%b1a_3125897?windAnimation=0&gust=0&satellite=1&cloudsAndPrecipitation=0&temperature=0&sunshine=0&extremeForecastIndex=0&geoloc=fixed&tempunit=C&windunit=km%252Fh&lengthunit=metric&zoom=5&autowidth=auto" frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" style="width: 450px; height: 495px"></iframe>
+<div class="plus" style="top: 6px; right: 6px;"><!-- ## MAPAS METEOBLUE -->
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://www.meteoblue.com/es/tiempo/mapas/castelldefels_espa%c3%b1a_3125897#coords=5.58/41.181/2.321&map=radar~radarMapEU~none~none~none">⏩</a></div>
+</div>
+</div>
+    </td>
+    <td><!-- ## RADAR AEMET  (..._r8pb = radar Península Ibérica  00' 30' / ..._r8ba, ..._r8za = radar Barcelona, Zaragoza   00' 10' 20' 30' 40' 50') -->
+<div class="container">
+<a href="https://www.aemet.es/es/eltiempo/observacion/radar">
+<script>
+var d = new Date();
+var horaImg = "";
+var horaImg2 = "";
+var hora = sCero(d.getUTCHours());
+var horanterior = sCero((hora-1));
+var min = sCero(d.getUTCMinutes());
+var fecha = (d.getUTCFullYear() * 100 + d.getUTCMonth() + 1) * 100 + d.getUTCDate();
+if(min >= 00 && min <= 09){horaImg = horanterior + '50'; horaImg2 = horanterior + '40';}
+if(min >= 10 && min <= 19){horaImg = hora + '00'; horaImg2 = horanterior + '50';}
+if(min >= 20 && min <= 29){horaImg = hora + '10'; horaImg2 = hora + '00';}
+if(min >= 30 && min <= 39){horaImg = hora + '20'; horaImg2 = hora + '10';}
+if(min >= 40 && min <= 49){horaImg = hora + '30'; horaImg2 = hora + '20';}
+if(min >= 50 && min <= 59){horaImg = hora + '40'; horaImg2 = hora + '30';}
+var satImg = "https://www.aemet.es/imagenes_d/eltiempo/observacion/radar/" + fecha + horaImg + "_r8ba" + ".gif";
+var satImg2 = "https://www.aemet.es/imagenes_d/eltiempo/observacion/radar/" + fecha + horaImg2 + "_r8ba" + ".gif";
+document.write('<img class="marquito" src=' + satImg + ' onmouseover=this.src=\'' + satImg2 + '\' onmouseout=this.src=\'' + satImg + '\' width=450 height=497>');
+function sCero(sValor){var sRet = "";if(sValor < 0){sValor = 23;}var sRet = sValor;if(sValor < 10) { sRet = '0' + sValor; }return sRet;}
+</script>
+</a>
+<div class="plus" style="top: 1%; right: 1%;"><a href="https://www.tiempo.com/radar-espana-reflect.html">&nbsp;meteored&nbsp;</a></div>
+<div class="plus" style="top: 5%; right: 1%;"><a href="https://m.meteo.cat/temps-actual">&nbsp;meteocat&nbsp;</a></div>
+<div class="plus" style="top: 9%; right: 1%;"><a href="https://www.eltiempo.es/lluvia">&nbsp;eltiempo&nbsp;</a></div>
+<div class="plus" style="top: 13%; right: 1%;"><a href="https://www.windy.com/es/-Radar-del-tiempo-radar?">&nbsp;windy&nbsp;</a></div>
+<div class="plus" style="top: 17%; right: 1%;"><a href="https://www.meteoblue.com/es/tiempo/mapas/castelldefels_espa%c3%b1a_3125897#coords=5.58/41.181/2.321&map=radar~radarMap~none~none~none">&nbsp;mb&nbsp;</a></div>
+</div>
+    </td>
+   </tr>
+</table>
+
+<!-- #### meteo-3 #### -->
+
+<table cellpadding=0 cellspacing=0 border=0>
+   <tr>
+    <td colspan="3"><!-- ## YR.NO-->
+<a href="https://www.yr.no/en/forecast/daily-table/2-3125897/Spain/Catalonia/Barcelona/Castelldefels">
+<img class="marquito" style="filter: brightness(98%); border-radius: 9px;" src="https://www.yr.no/en/content/2-3125897/meteogram.svg" width="900" height="391">
+</a>
+   </td>
+   </tr>
+   <tr>
+    <td colspan="2"><!-- ## AEMET -->
+<iframe name="iframe_aemet_id33044" width="100%" height="100%" tabindex="0" id="iframe_aemet_id33044" src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/castelldefels-id08056?w=g4p011100001ohmffffffx4f86d9t95b6e9r1s8n2" frameborder="0" scrolling="no"></iframe>
+    </td>
+    <td rowspan="2"><!-- ## METEOBLUE.CASTELLDEFELS -->
+<div class="container marquito" style="width: 376px; height: 445px; background-color: FloralWhite;">
+<iframe src="https://www.meteoblue.com/es/tiempo/widget/daily/castelldefels_espa%c3%b1a_3125897?geoloc=fixed&days=7
+&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=1&maxtemperature=1&mintemperature=1
+&windspeed=1&windgust=1&winddirection=1&uv=1&humidity=1 &precipitation=1&precipitationprobability=1&spot=1&pressure=1&layout=light"
+ frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
+ style="width: 376px; height: 442px; background-color: transparent;">
+</iframe>
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://www.meteoblue.com/es/tiempo/current/castelldefels_espa%c3%b1a_3125897">⏩</a></div>
+</div>
+    </td>
+   </tr>
+   <tr>
+    <td><!-- ## METEOCIEL -->
+<div class="container">
+<img class="marquito" src="https://modeles16.meteociel.fr/modeles/gensp/graphe_ens3.php?&lat=41.2801&lon=1.97407&col=1"
+ onclick="window.location=this.src;"
+ width="211" height="290">
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://www.meteociel.com/previsions/51845/castelldefels.htm">⏩</a></div>
+</div>
+    </td>
+    <td><!-- ## WETTERZENTRALE -->
+<div class="container">
+<img class="marquito" src="https://www.wetterzentrale.de/es/ens_image.php?geoid=36883&var=201&model=gfs&member=ENS&bw=1"
+ onclick="window.location=this.src;"
+ width="311" height="290">
+ <div class="plus" style="top: 2px; right: 4px;"><a href="https://www.wetterzentrale.de/es/show_diagrams.php?model=gfs&lid=OP&var=92&geoid=36883">⏩</a></div>
+</div>
+    </td>
+   </tr>
+</table>
+
+</div>
+
+
+
+
+
+
+<p style="height: 300px; margin: 0;"></p>
+
+
+
+
+
+
+<!-- ############################### -->
+<!-- ######## meteo_Boltaña ######## -->
+<!-- ############################### -->
+
+<p id="meteo_Boltaña"></p>
+
+<table border=0>
+ <tr>
+   <td>
+<!-- 
+<a href="https://camareando.com/"><img src="https://www.ayuntamientossobrarbe.com/webcam/boltana/imagen.jpg" height="265" width="410"></a>
+<a href="https://camareando.com/"><img src="https://camareando.com/var/images/boltana-panoramica/last.jpg?" height="265" width="410"></a>
+<a href="https://camareando.com/"><img src="https://camareando.com/var/images/ordesa-goriz/last.jpg" height="265" width="410"></a>
+<a href="https://camareando.com/"><img src="https://www.norpyrene.com/webcams/plaza/scripts/webcam.php?" height="265" width="410"></a>
+<a href="https://camareando.com/"><img src="https://www.norpyrene.com/webcams/cruce/scripts/webcam.php?" height="265" width="410"></a>
+ -->
+<a href="https://camareando.com/"><img src="https://www.norpyrene.com/webcams/cruce/scripts/webcam.php?" height="265" width="410"></a>
+<br>
+<a href="https://camareando.com/"><img src="https://www.ayuntamientossobrarbe.com/webcam/boltana/imagen.jpg" height="265" width="410"></a>
+   </td>
+   <td>
+<a href="https://www.aemet.es/es/eltiempo/observacion/radar">
+<script type="text/javascript">//<![CDATA[ 
+{
+var sImg = ""; 
+var d = new Date(); 
+var horadia = ""; 
+var hora = sCero(d.getUTCHours()); 
+var min = sCero(d.getUTCMinutes()); 
+var fecha = (d.getUTCFullYear() * 100 + d.getUTCMonth() + 1) * 100 + d.getUTCDate();
+if(min >= 00 && min <= 09){horadia = sCero((hora-1)) + '50';} 
+if(min >= 10 && min <= 19){horadia = hora + '00';} 
+if(min >= 20 && min <= 29){horadia = hora + '10';} 
+if(min >= 30 && min <= 39){horadia = hora + '20';} 
+if(min >= 40 && min <= 49){horadia = hora + '30';} 
+if(min >= 50 && min <= 59){horadia = hora + '40';}
+sImg = "https://www.aemet.es/imagenes_d/eltiempo/observacion/radar/" + fecha + horadia + "_r8za" + ".gif";
+//document.write(sImg);
+document.write('<img border=0 src=' + sImg + ' width="480" height="530" alt="Radar Zaragoza - AEMET" title="Radar Zaragoza - AEMET">');
+//# test variables	var horamenos = (hora-1);
+//# test variables	var horamenosFscero = sCero((hora-1));
+//# test variables	document.write('<br>h:' + hora + ' / m:' + min + ' / h-1:' + horamenos + ' / h-1F:' + horamenosFscero + ' / url:' + horadia);
+}
+function sCero(sValor){var sRet = "";if(sValor < 0){sValor = 23;}var sRet = sValor;if(sValor < 10) { sRet = '0' + sValor; }return sRet;} 
+//]]></script>
+</a>
+   </td>
+ </tr>
+</table>
+
+<a href="https://app.weathercloud.net/d9070692185#current"><img style="filter: grayscale(80%)" src="https://app.weathercloud.net/device/sticker/9070692185" height="" width="414"></a><a href="https://www.saihebro.com/semobile/index.php?url=/tr/ficha/estacion:A040"><img style="filter: hue-rotate(120deg) grayscale(80%); border-radius: 8px;" src="https://app.weathercloud.net/device/sticker/9070692185" height="208" width="36"></a><a href="https://www.saihebro.com/semobile/index.php?url=/pluviometrias/index"><img style="filter: hue-rotate(240deg) grayscale(80%); border-radius: 8px;" src="https://app.weathercloud.net/device/sticker/9070692185" height="208" width="36"></a><a href="https://app.weathercloud.net/d9802204332#current"><img style="filter: grayscale(80%)" src="https://app.weathercloud.net/device/sticker/9802204332" height="" width="414"></a>
+
+<br>
+
+<a href="https://www.yr.no/en/forecast/daily-table/2-3127858/Spain/Aragon/Huesca/Bolta%C3%B1a"><img src="https://www.yr.no/en/content/2-3127858/meteogram.svg" height="" width="900" /></a>
+
+<br>
+
+<div style="width: 900px; height: 180px;"><iframe name="iframe_aemet_id33044" width="100%" height="100%" tabindex="0" id="iframe_aemet_id33044" src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/boltana-id22066?w=g4p011100001ohmffffffx4f86d9t95b6e9r1s8n2" frameborder="0" scrolling="no"></iframe></div>
+
+<div style="width: 900px; height: 510px; background-color: FloralWhite;"><iframe src="https://www.meteoblue.com/es/tiempo/widget/daily/boltaña_españa_3127858?geoloc=fixed&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&precipunit=MILLIMETER&coloured=coloured&pictoicon=0&pictoicon=1&maxtemperature=0&maxtemperature=1&mintemperature=0&mintemperature=1&windspeed=0&windspeed=1&windgust=0&winddirection=0&winddirection=1&uv=0&humidity=0&precipitation=0&precipitation=1&precipitationprobability=0&precipitationprobability=1&spot=0&spot=1&pressure=0&pressure=1&layout=light" frameborder="0" scrolling="NO" allowtransparency="true" style="width: 900px;height: 510px"></iframe></div>
+
+<a href="https://www.meteociel.com/previsions/51569/sabinanigo.htm"><img src="https://modeles16.meteociel.fr/modeles/gensp/graphe_ens3.php?&lat=42.4449&lon=0.06811&col=1" height="" width="900" /></a>
+
+<br>
+
+<a href="https://www.wetterzentrale.de/es/show_diagrams.php?model=gfs&lid=OP&var=92&geoid=37239"><img src="https://www.wetterzentrale.de/es/ens_image.php?geoid=37239&var=201&model=gfs&member=ENS&bw=1" height="" width="900" /></a>
+
+<br>
+
+
+
+
+
+
+<p style="height: 300px; margin: 0;"></p>
+
+
+
+
+
+
+<!-- ########################### -->
+<!-- ######## BOOKMARKS ######## -->
+<!-- ########################### -->
+
+<div id="bookmarks">
+
+<a href="./">										▣			</a>&nbsp;
+<a href="https://drive.google.com/drive/folders/1vxmVUTikeyJmaRRxtR-ryJptx35uwBLL">	qwap			</a>
+<a href="https://www.youtube.com/channel/UCigTQ-Fq3jg3Qs92jmjXQ2w">			ytjms			</a>
+<a href="https://qp57.wordpress.com/">							qp57			</a>&nbsp;
+<a href="https://www.calendario-365.es/luna/calendario-lunar.html">			☯			</a>
+<a href="https://stellarium-web.org/">							✦			</a>
+<a href="https://www.meteoblue.com/es/tiempo/outdoorsports/seeing/castelldefels_espa%c3%b1a_3125897">	☄			</a>
+<a href="https://lichess.org/">								♞			</a>
+
+<br>
+<br>
+
+<a href="https://www.lavanguardia.com/">							LV			</a>
+<a href="https://elpais.com/">								elPA			</a>
+<a href="https://www.elperiodico.com/">							elPe			</a>
+<a href="https://www.elmundo.es/">							elM			</a>
+<a href="https://www.elconfidencial.com">						elC			</a>
+<a href="https://www.ara.cat">								ara			</a>
+<a href="https://www.elnacional.cat">							N			</a>
+<a href="https://www.vilaweb.cat">							Ш			</a>
+<a href="https://www.meneame.net/top_active">						mnm			</a>
+<br>
+<a href="https://cnnespanol.cnn.com">							CNN			</a>
+<a href="https://www.bbc.com/mundo">							BBC			</a>
+<a href="https://www.nytimes.com/es">							NewYorkTimes		</a>
+<a href="https://www.newyorker.com">							NewYorker		</a>
+
+<br>
+<br>
+
+<a href="https://www.enriquedans.com/">							edans			</a>
+<a href="https://www.microsiervos.com/">							microsiervos		</a>
+<a href="https://culturainquieta.com/">							c-inquieta		</a>
+<a href="https://www.technologyreview.es/">						mitech.es		</a>
+<br>
+<a href="https://www.xataka.com/">							xataka			</a>
+<a href="https://www.lavanguardia.com/andro4all/">					a4a			</a>
+<a href="https://www.androidpolice.com/">						ap			</a>
+<a href="https://www.gsmarena.com/">							gsmarena		</a>
+<a href="https://www.engadget.com/">							engadget		</a>
+<a href="https://www.technologyreview.com/">						mitech			</a>
+<br>
+<a href="https://121clicks.com/">							121clicks		</a>
+<a href="https://www.directoalpaladar.com/">						dalpaladar		</a>
+<a href="https://www.wikiart.org/">							wikiart			</a>
+
+<br>
+<br>
+
+<!-- ⛅ METEO ⛅ -->
+
+<a href="./qCp.html">									⛅			</a>
+<a href="https://www.aemet.es/es/portada">						AEMet			</a>
+<a href="https://m.meteo.cat/temps-actual">						mcat			</a>
+<a href="https://www.tiempo.com/radar-espana-reflect.html">				meteored		</a>
+<a href="https://www.eltiempo.es/lluvia">						eltiempo		</a>
+<br>
+<a href="https://www.meteoblue.com/es/tiempo/mapas/castelldefels_espa%c3%b1a_3125897#coords=5.58/41.181/2.321&map=radar~radarMap~none~none~none">	meteoblue	</a>
+<a href="https://www.windy.com/es/-Radar-del-tiempo-radar?">				Windy			</a>
+<a href="https://www.ventusky.com/?p=40.4;-3.7;5&l=radar">				Ventusky		</a>
+<a href="https://www.rainviewer.com/es/weather-radar-map-live.html">			RainViewer		</a>
+<br>
+<a href="https://www.meteociel.com/">							Meteociel		</a>
+<a href="https://www.wetterzentrale.de/">						Wetterzentrale		</a>
+
+<br>
+<br>
+
+<!-- 📻 RADIO 📻 -->
+
+<a href="./qRp.html">									📻			</a>
+<a href="../../post-it/RX.txt">								⚅			</a>
+<a href="../../post-it/RX.xlsx">							⚅			</a>
+<a href="https://www.hamqsl.com/solarn0nbh.php?image=random">				☼			</a>
+<a href="https://www.short-wave.info/index.php">					SW.info			</a>
+<a href="https://www.cb27.com/">							CB27			</a>
+<a href="https://websdr.org/">								WebSDR			</a>
+<a href="https://websdr.ea1ura.com/">							A☨			</a>
+<a href="https://ham.websdrbordeaux.fr:8000/">						B☨			</a>
+<a href="https://rem-esp.spdns.org:8901/">						M☨			</a>
+<br>
+<a href="https://radiomap.eu/es/barcelona">						Radiomap.eu:BCN		</a>&nbsp;
+<a href="https://radio.garden">								RadioGarden		</a>
+<br>
+<a href="https://directory.shoutcast.com/">						SHOUTcast		</a>&nbsp;
+<a href="https://dir.xiph.org/">							Icecast			</a>&nbsp;
+<a href="https://www.internet-radio.com/">						InternetRadio		</a>
+<br>
+<a href="https://tunein.com/search/">							TUNEIN			</a>&nbsp;
+<a href="https://www.publicradiofan.com">						PublicRadioFan		</a>
+<br>
+<a href="https://www.rtve.es/play/radio/">						rne			</a>&nbsp;
+<!-- https://github.com/LaQuay/TDTChannels/blob/master/RADIO.md -->
+<a href="https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r1_main.m3u8">		❬r1❭			</a>&nbsp;
+<a href="https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r2_main.m3u8">		❬r2❭			</a>&nbsp;
+<a href="https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r3_main.m3u8">		❬r3❭			</a>&nbsp;
+<a href="https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r4_main.m3u8">		❬r4❭			</a>&nbsp;
+<a href="https://rtvelivestream.akamaized.net/rtvesec/rne/rne_r5_madrid_main.m3u8">	❬r5❭			</a>
+<br>
+<a href="https://www.radioswissjazz.ch/fr/webplayer">					RadioSwissJazz :	</a>
+<a href="https://www.radioswissjazz.ch/fr">						jazz			</a>
+<a href="https://stream.srg-ssr.ch/m/rsj/aacp_96">					❬♫❭			</a>
+<a href="https://www.radioswissclassic.ch/fr">						classic			</a>
+<a href="https://stream.srg-ssr.ch/m/rsc_fr/aacp_96">					❬♫❭			</a>
+<br>
+<a href="https://www.jazzgroove.org">							TheJazzGroove :		</a>
+<a href="https://east-aac-64.streamthejazzgroove.com/stream">				❬east❭			</a>
+<a href="https://west-aac-64.streamthejazzgroove.com/stream">				❬west❭			</a>&nbsp;
+<a href="https://jazz.kjzz.org/sites/all/services/jazzstreamer.php">			KJZZ			</a>
+<a href="https://kjzz.streamguys1.com/kjzzhd2_mp3_128">					❬♫❭			</a>
+<br>
+<a href="https://www.wqxr.org/streams/">						WQXR			</a>&nbsp;
+<a href="https://www.kdfc.com/playlist/">						KDFC			</a>&nbsp;
+<a href="https://www.mdr.de/mdr-klassik/">						mdrK			</a>
+<a href="https://mdr-284350-0.cast.mdr.de/mdr/284350/0/aac/high/stream.aac">		❬♫❭			</a>&nbsp;
+<a href="https://www.veniceclassicradio.eu/player/new/vcr.php?ch=0">			VeniceCR		</a>
+
+<br>
+<br>
+
+<!-- 📺 TV 📺 -->
+
+<a href="./qTp.html">									📺			</a>
+<a href="https://www.justwatch.com/es/nuevo?providers=fil,mvs,mxx,prv,rtv">		JustWatch		</a>&nbsp;
+<a href="https://www.filmaffinity.com/">						FilmAffinity		</a>
+<br>
+<a href="https://www.filmin.es/">							FILMIN			</a>&nbsp;
+<a href="https://www.primevideo.com/">							primevideo		</a>&nbsp;
+<a href="https://www.hbomax.com/">							HBOmax			</a>&nbsp;
+<a href="https://tv.garden">								TvGarden		</a>
+<br>
+<a href="https://www.rtve.es/television/somos-cine/peliculas/">				SomosCine		</a>&nbsp;
+<a href="https://pluto.tv">								pluto.tv		</a>&nbsp;
+<a href="https://app.plex.tv">								plex			</a>&nbsp;
+<a href="https://www.arte.tv/es/">							arte			</a>&nbsp;
+<a href="https://vimeo.com/channels/staffpicks">					vimeo			</a>
+<br>
+<a href="https://www.rtve.es/play/videos/directo/canales-lineales/24h/">		24h			</a>&nbsp;
+<a href="https://www.rtve.es/play/videos/directo/canales-lineales/la-1/">		La1			</a>&nbsp;
+<a href="https://www.rtve.es/play/videos/directo/canales-lineales/la-2/">		La2			</a>&nbsp;
+<a href="https://es.euronews.com/live">							€news			</a>&nbsp;
+<a href="https://www.dw.com/es/live-tv/channel-spanish">				DW			</a>&nbsp;
+<a href="https://www.france24.com/fr/direct">						F24			</a>&nbsp;
+<a href="https://news.sky.com/watch-live">						SkyNews			</a>
+<br>
+<a href="https://www.cgtn.com/channel/documentary">					CGTN Doc		</a>&nbsp;
+<a href="https://www.classicartsshowcase.org/watch-classic-arts-showcase/">		ClassicArtsShowcase	</a>
+
+<br>
+<br>
+
+<a href="https://9fx.us/papyrefb2_1">							papyrefb2		</a>
+<a href="https://9fx.us/papyrefb2_2">							/b			</a>
+<a href="https://epublibre.xyz">							epublibre		</a>
+<a href="https://www.lectulandia.com/">							lectulandia		</a>
+<a href="https://bt4g.com/">								bt4g			</a>
+
+<br>
+<br>
+
+<a href="https://www.flightradar24.com/41.33,2.08/12">					BCN: flightradar24	</a>
+<a href="https://www.flightstats.com/v2/airport-conditions/BCN">			Flightstats		</a>
+<a href="https://skyvector.com/airport/LEBL/Barcelona-J-Tarradellas-Elprat-Airport">	SkyVector		</a>
+
+<br>
+<br>
+
+<a href="https://www.ambmobilitat.cat/">						AMB:Mobilitat		</a>&nbsp;
+<a href="https://rodalies.gencat.cat/ca/inici">						Rodalies		</a>&nbsp;
+<a href="https://mou-te.gencat.cat/portada-moute.html#/es/portada">			Mou-te			</a>
+<br>
+<a href="https://barcelona.avanzagrupo.com/lineas-y-horarios/todas-las-lineas">		avanza			</a>&nbsp;
+<a href="https://www.baixbus.cat/es/linia-autobus-902">					Baixbus-L902		</a>
+<br>
+<a href="https://mapcarta.com/es/Mapa">							Mapcarta		</a>&nbsp;
+<a href="https://www.google.es/maps/@40.2585706,-3.5062865,6.75z">			GoogleMaps		</a>&nbsp;
+<a href="https://infocar.dgt.es/etraffic/">						DGT			</a>&nbsp;
+<a href="https://mct.gencat.cat/">							MCT			</a>
+<br>
+<a href="https://organicmaps.app/es/">							OrganicMaps		</a>&nbsp;
+<a href="https://www.openandromaps.org/en">						OpenAndroMaps		</a>
+
+<br>
+<br>
+
+<a href="https://movil.bbva.es/">							movil.bbva.es		</a>
+<br>
+<a href="https://192.168.1.1/">								192.168.1.1		</a>&nbsp;
+<a href="https://www.movistar.es/particulares/test-de-velocidad/medir-velocidad?abcd">	movistar		</a>&nbsp;
+<a href="https://fast.com/es/">								fast			</a>
+
+</div>
+
+</body>
+</html>
